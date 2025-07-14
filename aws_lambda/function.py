@@ -47,10 +47,7 @@ def get_next_collection(today):
     else:
         bins_due = {} # Fallback, though highly unlikely
 
-    # Format the date for the message
-    formatted_next_tuesday = next_tuesday.strftime("%B %d, %Y")
-
-    return formatted_next_tuesday, next_tuesday, bins_due
+    return next_tuesday, bins_due
     
 
 def lambda_handler(event, context):
@@ -59,7 +56,7 @@ def lambda_handler(event, context):
     from the current date.
     """
 
-    formatted_next_tuesday, next_tuesday, bins_due = get_next_collection(date.today())
+    next_tuesday, bins_due = get_next_collection(date.today())
 
     try:
         return {
@@ -68,7 +65,7 @@ def lambda_handler(event, context):
                 'Content-Type': 'application/json'
             },
             'body': json.dumps({
-                'message': f"Bin collection details for the next Tuesday, {formatted_next_tuesday}.",
+                # 'message': f"Bin collection details for the next Tuesday, {formatted_next_tuesday}.",
                 'data': {
                     'date': next_tuesday.isoformat(),
                     'bins_due': bins_due
