@@ -65,7 +65,6 @@ def lambda_handler(event, context):
                 'Content-Type': 'application/json'
             },
             'body': json.dumps({
-                # 'message': f"Bin collection details for the next Tuesday, {formatted_next_tuesday}.",
                 'data': {
                     'date': next_tuesday.isoformat(),
                     'bins_due': bins_due
