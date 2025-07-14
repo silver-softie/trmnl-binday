@@ -1,0 +1,88 @@
+<div class="screen">
+    <div class="view view--half_horizontal">
+        <div class="layout">
+
+            <h1 class="title title--large text--center spacing--bottom-medium">
+                Bin Collection
+            </h1>
+
+            <p class="text--medium text--center label spacing--bottom-medium">
+                Collection for {{ data.date | date: "%A, %B %-d, %Y" }}
+            </p>
+
+            {% if data.bins_due and data.bins_due.size > 0 %}
+            <div class="section spacing--bottom-medium text--center">
+                <h2 class="title title--small spacing--bottom-small">
+                    Bins Due:
+                </h2>
+
+                <br />
+
+                <ul class="list list--style-none">
+                    {% if data.bins_due["blue"] %}
+                    <li class="title title--small">
+                        <span class="icon--checkbox"></span>
+                        <b>Blue</b> - Landfill
+                    </li>
+                    {% endif %}
+                    {% if data.bins_due["brown"] %}
+                    <li class="title title--small">
+                        <span class="icon--checkbox"></span>
+                        <b>Brown</b> - Food & Garden Waste
+                    </li>
+                    {% endif %}
+                    {% if data.bins_due["green"] %}
+                    <li class="title title--small">
+                        <span class="icon--checkbox"></span>
+                        <b>Green</b> - Cans & Plastics
+                    </li>
+                    {% endif %}
+                    {% if data.bins_due["grey"] %}
+                    <li class="title title--small">
+                        <span class="icon--checkbox"></span>
+                        <b>Grey</b> - Paper & Cardboard
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% else %}
+            <p class="text--medium text--center spacing--top-large">
+                {{ data.message }}
+            </p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .layout {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .layout>h1,
+    .layout>p,
+    .layout>div.section,
+    .layout>p.text--medium {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        /* Explicitly remove list bullets */
+        padding: 0;
+        /* Remove default padding from ul */
+        margin: 0;
+        /* Remove default margin from ul */
+    }
+
+    .list-item {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+</style>

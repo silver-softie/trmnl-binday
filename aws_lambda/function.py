@@ -35,17 +35,17 @@ def get_next_collection(today):
     # Determine the cycle week (0, 1, 2, or 3)
     cycle_week = week_number_from_reference % 4
 
-    bins_due = []
+    bins_due = {}
     if cycle_week == 0:
-        bins_due = ["Paper and Cardboard / Grey Bin"]
+        bins_due = {"blue": False, "brown": False, "green": False, "grey": True}
     elif cycle_week == 1:
-        bins_due = ["Food and Garden Waste / Brown Bin", "Landfill / Blue Bin"]
+        bins_due = {"blue": True, "brown": True, "green": False, "grey": False}
     elif cycle_week == 2:
-        bins_due = ["Cans and Plastics / Green Bin"]
+        bins_due = {"blue": False, "brown": False, "green": True, "grey": False}
     elif cycle_week == 3:
-        bins_due = ["Food and Garden Waste / Brown Bin", "Landfill / Blue Bin"]
+        bins_due = {"blue": True, "brown": True, "green": False, "grey": False}
     else:
-        bins_due = ["Unknown Bin Type"] # Fallback, though highly unlikely
+        bins_due = {} # Fallback, though highly unlikely
 
     # Format the date for the message
     formatted_next_tuesday = next_tuesday.strftime("%B %d, %Y")
