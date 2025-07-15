@@ -10,12 +10,15 @@ This is the backend code that calculates the bins collections that are due on th
 Create an API Gateway trigger and this provides the URL for the API.
 
 Returns a JSON object:
+
+```
 {
   "data": {
     "date": "2025-07-15",
     "bins_due": { "blue": true, "brown": true, "green": false, "grey": false }
   }
 }
+```
 
 TRMNL requires the object to hold the returned values in a "data" field.
 
