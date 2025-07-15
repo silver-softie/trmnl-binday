@@ -27,7 +27,7 @@ TRMNL requires the object to hold the returned values in a "data" field.
 - Deploy the function.
 
 ### TRMNL plugin
-Strategy: Polling
-Polling URL: https://cv0sx8t5r5.execute-api.us-east-1.amazonaws.com/default/BinCollectionPlugin
-Polling verb: GET
-Polling headers: Accept=application/json
+- Strategy: Polling
+- Polling URL: https://cv0sx8t5r5.execute-api.us-east-1.amazonaws.com/default/BinCollectionPlugin
+- Polling verb: GET
+- Polling headers: Accept=application/json
